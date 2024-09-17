@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Functions</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/sunburst.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</head>
+<body>
+    <header>
+        <h1>Workshop 7: JavaScript Functions</h1>
+    </header>
+
+    <div class="container">
+        <h1>Workshop 7</h1>
+        <p>In the last workshop, we looked at inputs with text blocks and noticed that the code we used was 
+            encapsulated in a function that was called at the click of a button. A function in JavaScript is 
+            a reusable block of code designed to perform a specific task. Functions are fundamental in making 
+            your code modular, easier to read, and reusable.</p>
+        
+        <h2>Declaring a Function</h2>
+        <p>In JavaScript, a function is defined using the <span class="highlight">function</span> keyword, followed by the function name and a pair of parentheses <code>()</code>. Here’s a simple example:</p>
+        <h3>Example:</h3>
+        <pre><code class="language-javascript">
+function greet() {
+    console.log("Hello, World!");
+}
+        </code></pre>
+
+        <p>To call the function and run the code inside it:</p>
+        <pre><code class="language-javascript">
+greet(); // Outputs: "Hello, World!"
+        </code></pre>
+
+        <h3>Try It Out:</h3>
+        <p>Type your name into the textbox and greet yourself using the function.</p>
+        <p><input type="text" id="nameInput" placeholder="Enter your name">
+           <button onclick="greetUser()">Greet Me!</button></p>
+        <p class="highlight" id="greetingText"></p>
+        <pre><code class="language-html">
+&lt;input type="text" id="nameInput" placeholder="Enter your name"&gt;
+&lt;button onclick="greetUser()"&gt;Greet Me!&lt;/button&gt;
+&lt;p id="greetingText"&gt;&lt;/p&gt;
+
+&lt;script&gt;
+function greetUser() {
+    let name = document.getElementById("nameInput").value;
+    document.getElementById("greetingText").innerText = "Hello, " + name + "!";
+}
+&lt;/script&gt;
+        </code></pre>
+
+        <div class="browser-section">
+            <h2>Function Parameters and Arguments</h2>
+            <p>Functions can accept parameters, allowing you to pass in values for them to use. You can think of parameters as placeholders for the actual values that will be provided when the function is called.</p>
+            
+            <h3>Example:</h3>
+            <pre><code class="language-javascript">
+function greetUser(name) {
+    console.log("Hello, " + name);
+}
+
+greetUser("Dave");  // Outputs: Hello, Dave
+            </code></pre>
+
+            <h3>Try It Out:</h3>
+            <p>Type your name into the textbox, and the function will greet you using a parameter.</p>
+            <p><input type="text" id="nameParameter" placeholder="Enter your name">
+               <button onclick="greetUserParam()">Greet Me!</button>
+            </p>
+            <p class="highlight" id="greetingParamText"></p>
+            <pre><code class="language-html">
+&lt;input type="text" id="nameParameter" placeholder="Enter your name"&gt;
+&lt;button onclick="greetUserParam()"&gt;Greet Me!&lt;/button&gt;
+&lt;p id="greetingParamText"&gt;&lt;/p&gt;
+
+&lt;script&gt;
+function greetThisUser(name){
+    document.getElementById("greetingParamText").innerText = "Hello, " + name + "!";
+}
+
+function greetUserParam() {
+    greetThisUser(document.getElementById("nameParameter").value);
+}
+&lt;/script&gt;
+            </code></pre>
+        </div>
+
+        <div class="browser-section">
+            <h2>Return Values</h2>
+            <p>A function can return a value using the <span class="highlight">return</span> statement. The return value can be captured and used in other parts of your code.</p>
+            
+            <h3>Example:</h3>
+            <pre><code class="language-javascript">
+function square(x) {
+    return x * x;
+}
+
+let result = square(5);
+console.log(result);  // Outputs: 25
+            </code></pre>
+        </div>
+
+        <div class="browser-section">
+            <h2>Arrow Functions</h2>
+            <p>Arrow functions provide a shorter syntax for writing functions. These are often used for shorter, inline functions.</p>
+
+            <h3>Example:</h3>
+            <pre><code class="language-javascript">
+const multiply = (a, b) => a * b;
+
+console.log(multiply(2, 3));  // Outputs: 6
+            </code></pre>
+        </div>
+
+        <div class="browser-section">
+            <h2>Function Expressions</h2>
+            <p>Function expressions allow you to assign a function to a variable. This function can be anonymous, meaning it doesn't need a name.</p>
+
+            <h3>Example:</h3>
+            <pre><code class="language-javascript">
+const sayHi = function() {
+    console.log("Hi!");
+};
+
+sayHi();  // Outputs: Hi!
+            </code></pre>
+        </div>
+
+        <div class="browser-section">
+            <h2>Exercises</h2>
+            <ul id="taskList">
+                <li><input type="checkbox" id="task1"><label for="task1"> Task 1: Simple Function - Add<br>
+                    Create a function that takes two numbers as a parameter and adds them together.</label></li>
+                <li><input type="checkbox" id="task2"><label for="task2"> Task 2: Highest Number Function<br>
+                    Create a function that takes two numbers and returns the highest number.</label></li>
+                <li><input type="checkbox" id="task3"><label for="task3"> Task 3: Magnificent<br>
+                    Create a function that accepts a name and says hello to the console. If the 
+                    name is _your_ name, then suffix your name with ", The Magnificent!". </label></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; J. Wilson. Dundee and Angus College.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
